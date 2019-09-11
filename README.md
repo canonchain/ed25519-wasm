@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/canonchain/ed25519-wasm.svg?branch=master)](https://travis-ci.org/canonchain/ed25519-wasm)
+[![Build Status](https://travis-ci.com/canonchain/ed25519-wasm.svg?branch=master)](https://travis-ci.org/canonchain/ed25519-wasm)
 
 # ed25519-wasm
 
