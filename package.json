@@ -14,7 +14,7 @@
     "@babel/runtime": "^7.6.0",
     "babel-loader": "^7.1.5",
     "glob": "^7.1.2",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^3.0.0"
   },
