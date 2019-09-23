@@ -1,28 +1,27 @@
-(function(){
+(function () {
     let random_bytes;
     if (typeof crypto !== 'undefined') {
 
-        random_bytes = function(size){
+        random_bytes = function (size) {
             let array;
             array = new Uint8Array(size);
             crypto.getRandomValues(array);
             return array;
         };
     } else {
-
         random_bytes = require('crypto').randomBytes;
     }
-    function Wrapper(lib){
+    function Wrapper(lib) {
         let allocate, free;
         lib = lib();
         allocate = lib['allocateBytes'];
         free = lib['freeBytes'];
 
-        function createSeed(){
+        function createSeed() {
             return random_bytes(32);
         }
 
-        function createKeyPair(seed){
+        function createKeyPair(seed) {
             let publicKey, secretKey;
             if (!(seed instanceof Uint8Array)) {
                 throw new Error('not Uint8Array!');
@@ -40,7 +39,7 @@
             };
         }
 
-        function sign(message, publicKey, secretKey){
+        function sign(message, publicKey, secretKey) {
             let signature;
             if (!(message instanceof Uint8Array && publicKey instanceof Uint8Array && secretKey instanceof Uint8Array)) {
                 throw new Error('not Uint8Arrays!');
@@ -55,7 +54,7 @@
             return signature;
         }
 
-        function verify(signature, message, publicKey){
+        function verify(signature, message, publicKey) {
             let result;
             if (!(signature instanceof Uint8Array && message instanceof Uint8Array && publicKey instanceof Uint8Array)) {
                 throw new Error('not Uint8Arrays!');
