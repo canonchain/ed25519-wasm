@@ -2,38 +2,64 @@
 
 # ed25519-wasm
 
-https://github.com/orlp/ed25519 compiled to WebAssembly using Emscripten and optimized for small size
+https://github.com/orlp/ed25519 compiled to base64,It works in both the NodeJS environment and the browser environment.
 
-## Usage
-
-install:
+## Install
 
 ```js
-npm install git+https://github.com/canonchain/ed25519-wasm.git
+npm install ed25519-wasm-pro
 ```
+
+## In Browser
+
+```js
+const ed25519 = require('ed25519-wasm-pro');
+console.log('webpack Test', ed25519);
+ed25519.ready(function() {
+  var seed = ed25519.createSeed();
+  var keys = ed25519.createKeyPair(seed);
+  var msg = new TextEncoder('utf-8').encode('hello there');
+  var sig = ed25519.sign(msg, keys.publicKey, keys.secretKey);
+  // console.log(sig, msg, keys.publicKey) // true
+  console.log('OK', ed25519.verify(sig, msg, keys.publicKey)); // true
+});
+```
+
+## In Node.js
+
+```
+const ed25519=require("ed25519-wasm-pro")
+
+ed25519.ready(function () {
+    const keys=ed25519.createKeyPair(prv)
+    let signature=ed25519.sign(message,keys.publicKey,keys.secretKey)
+})
+```
+
+## Usage
 
 Add script:
 
 ```js
-const ed25519 = require("ed25519-wasm");
+const ed25519 = require('ed25519-wasm-pro');
 ```
 
 createKeyPair:
 
 ```js
-ed25519.createKeyPair(seed)
+ed25519.createKeyPair(seed);
 ```
 
 sign:
 
 ```js
-ed25519.sign(message,publicKey,secretKey)
+ed25519.sign(message, publicKey, secretKey);
 ```
 
 verify:
 
 ```js
-ed25519.verify(signature,message,publicKey)
+ed25519.verify(signature, message, publicKey);
 ```
 
 ## Building

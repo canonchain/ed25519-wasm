@@ -74,10 +74,10 @@
             'verify': verify
         };
     }
-    if (typeof define === 'function' && define['amd']) {
+    if (typeof define === 'function' && define['amd'] && Object.keys(define['amd']).length) {
         define(['./ed25519'], Wrapper);
     } else if (typeof exports === 'object') {
-        module.exports = Wrapper(require('./ed25519'));
+        module.exports = Wrapper(require('./ed25519.js'));
     } else {
         this['ed25519_wasm'] = Wrapper(this['__ed25519wasm']);
     }
