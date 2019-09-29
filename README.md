@@ -4,6 +4,8 @@
 
 https://github.com/orlp/ed25519 compiled to base64,It works in both the NodeJS environment and the browser environment.
 
+This project does not need to reference annoying ".wasm" files when used under the browser.
+
 ## Install
 
 ```js
