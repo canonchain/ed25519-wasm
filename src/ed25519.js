@@ -40,7 +40,7 @@ var __ed25519wasm = (function () {
         1 < process.argv.length && (b.thisProgram = process.argv[1].replace(/\\/g, "/"));
         b.arguments = process.argv.slice(2);
         process.on("uncaughtException", function (a) {
-          if (!(a instanceof z)) throw a;
+          // if (!(a instanceof z)) throw a;
         });
         process.on("unhandledRejection", y);
         b.quit = function (a) {
